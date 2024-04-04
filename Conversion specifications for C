@@ -1,0 +1,35 @@
+Conversion specifications for C
+
+%-m.pX
+
+m and p are integer constants and X is a letter.
+
+both m and p are optional
+
+if the p is omitted, the period that separates m and p is also dropped
+
+example: %10.2f
+
+m is 10
+p is 2
+X is f
+
+example: %10f
+
+m is 10
+p and the period are missing
+
+example: %.2f 
+
+p is 2 and m is missing
+
+Minimum field width, m, specifies the minimum number of characters to print
+
+X is the conversion specifier -- which conversion should be applied to the value before it's printed. most commonly:
+
+d: integer in decimal form where p indicates min number of digits to display. %d is the same as %.1d.
+e: displays a floating point number in exponential format (scientific notation)
+f: float in "fixed decimal" format
+
+
+

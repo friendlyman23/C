@@ -1,5 +1,3 @@
 {
-    "code-runner.runInTerminal": true,
-    "C_Cpp.errorSquiggles": "disabled",
-    "cmake.configureOnOpen": true
+    "terminal.integrated.defaultProfile.windows": "Git Bash"
 }

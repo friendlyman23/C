@@ -1,28 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <string.h>
 
-int main() {
-    int array[10];
-    int i;
+int main(void)
+{
+   char *hi = "sup";
 
-    // Initialize the array to 0
-    for (i = 0; i < 10; i++) {
-        array[i] = 0;
-    }
+   printf("%d\n", strlen(hi));
 
-    // Seed the random number generator
-    srand(time(NULL));
+   printf("%s", hi);
+   hi[1] = 'x';
+   printf("%s", hi);
 
-    // Replace each element with a randomly generated signed integer
-    for (i = 0; i < 10; i++) {
-        array[i] = (rand() % 201) - 100; // Random number between -100 and 100
-    }
-
-    // Print the array to verify the results
-    for (i = 0; i < 10; i++) {
-        printf("array[%d] = %d\n", i, array[i]);
-    }
-
-    return 0;
+   return 0;
 }

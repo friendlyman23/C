@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "split:qsort_pointers.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "parray 10 a">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "quicksort:qsort_pointers.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "printf(&quot;%d&quot;, a[4])">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

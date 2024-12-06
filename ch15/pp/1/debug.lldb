@@ -1,0 +1,11 @@
+set set stop-line-count-before 14
+set set stop-line-count-after 14
+br s -n "write_line"
+display line
+display line[i]
+display extra_spaces
+display num_words
+display spaces_to_insert
+set set target.output-path output.log
+process launch -i quote2
+

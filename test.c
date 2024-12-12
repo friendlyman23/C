@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include <string.h>
+
+void foo(int arr[])
+{
+   return;
+}
 
 int main(void)
 {
-   char *hi = "sup";
+   int array[] = {1, 2, 3, 4, 5};
 
-   printf("%d\n", strlen(hi));
-
-   printf("%s", hi);
-   hi[1] = 'x';
-   printf("%s", hi);
+   foo(array);
 
    return 0;
 }

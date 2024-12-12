@@ -1,0 +1,12 @@
+shell rm output.log
+set set stop-line-count-before 14
+set set stop-line-count-after 14
+br set -n read_word
+display pos
+display len
+display word
+display (char) ch
+set set target.output-path output.log
+set set auto-confirm 1
+process launch -i quote2
+

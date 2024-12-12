@@ -1,6 +1,7 @@
+set set auto-confirm 1
 set set stop-line-count-before 14
 set set stop-line-count-after 14
-br s -n "write_line"
+br s -f justify.c -l 47
 display line
 display line[i]
 display extra_spaces

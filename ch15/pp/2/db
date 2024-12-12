@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# rm output.log
+
+lldb justify.out -s debug.lldb

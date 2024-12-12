@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // 16.1 Structure variables -- How to declare and perform basic operations
 // 16.2 Structure types -- can write functions that accept struct arguments or return structs
@@ -22,14 +23,40 @@ void print_part(struct part p)
    printf("Quantity on hand: %d\n", p.on_hand);
 }
 
+struct part build_part(int number, const char *name, int on_hand)
+{
+   struct part p;
+
+   p.number = number;
+   strcpy(p.name, name);
+   p.on_hand = on_hand;
+
+   return p;
+}
+
+struct part f(struct part part1)
+{
+   struct part part2 = part1;
+
+   return part2;
+}
 
 int main(void)
 {
    printf("\n\n\n");
 
-   struct part part1 = {.number = 58, .name = "Pizza time", .on_hand = 3};
+   /*struct part part1 = {.number = 58, .name = "Pizza time", .on_hand = 3};*/
+   /**/
+   /*print_part(part1);*/
+
+   struct part part1 = build_part(528, "Disk drive", 10);
+
+   struct part part2 = f(part1);
 
    print_part(part1);
+   print_part(part2);
+
+
 
 
 

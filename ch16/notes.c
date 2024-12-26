@@ -132,8 +132,27 @@ int main(void)
    print_part(part1);
 
 	 // function that returns a part structure that it constructs
-	 // from arguments
+	 // from arguments. the entire structure is copied.
    part1 = build_part(528, "Disk drive", 10);
+
+      // Compound literals
+	 // Use a compound literal to create a struct
+	 // that will be passed to a function
+   print_part((struct part) {528, "Disk drive", 10});
+
+      // Assign to variable*/
+      // This resembles a declaration containing an initializer*/
+      // But it's not the same bc initializers cannot appear in statements*/
+      // (this is a statement)*/
+   struct part part1 = (struct part) {528, "Disk drive", 10};
+
+   /*Compound literals consist of a type name within*/
+   /*parens, followed by a set of values enclosed by braces.*/
+   /*e.g., from 9.3, creating an unnamed array to avoid declaring it*/
+   /*as a variable and initializing it prior to passing it to a function*/
+
+   total = sum_array((ent []){3, 0, 3, 4, 1}, );
+
 
 
 
@@ -159,3 +178,15 @@ struct part build_part(int number, const char *name, int on_hand)
 
    return p;
 }
+
+	 // 16.2 Structure types
+	 // initialize a structure variable inside a function
+	 // to match another structure passed in as argument.
+	 // this is permitted provided the structure being initialized
+	 // has automatic storage duration and hasn't been declared static
+void f(struct part part1)
+{
+   struct part part2 = part1;
+   ...
+}
+

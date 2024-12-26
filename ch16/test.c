@@ -45,16 +45,11 @@ int main(void)
 {
    printf("\n\n\n");
 
-   /*struct part part1 = {.number = 58, .name = "Pizza time", .on_hand = 3};*/
-   /**/
-   /*print_part(part1);*/
+   print_part((struct part) {528, "Disk drive", 10});
 
-   struct part part1 = build_part(528, "Disk drive", 10);
-
-   struct part part2 = f(part1);
+   struct part part1 = (struct part) {528, "Disk drive", 10};
 
    print_part(part1);
-   print_part(part2);
 
 
 

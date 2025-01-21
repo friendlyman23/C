@@ -12,9 +12,10 @@ struct part
 	int number;
 	char name[NAME_LEN+1];
 	int on_hand;
+	float price;
 } inventory[MAX_PARTS];
 
-int num_parts = 0; //number of parts currently stored
+int num_parts = 3; //number of parts currently stored
 
 int find_part(int number);
 void insert(void);
@@ -30,8 +31,6 @@ void print(void);
 
 int main(void)
 {
-  char code;
-
 	inventory[0].number = 3;
 	strcpy(inventory[0].name, "horse");
 	inventory[0].on_hand = 1;
@@ -43,6 +42,7 @@ int main(void)
 	inventory[2].number = 2;
 	strcpy(inventory[2].name, "sup");
 	inventory[2].on_hand = 17;
+  char code;
 
   for (;;) 
   {
@@ -119,6 +119,8 @@ void insert(void)
   inventory[num_parts].number = part_number;
   printf("Enter part name: ");
   read_line(inventory[num_parts].name, NAME_LEN);
+	printf("Enter price: $");
+	scanf("%f", &inventory[num_parts].price);
   printf("Enter quantity on hand: ");
   scanf("%d", &inventory[num_parts].on_hand);
   num_parts++;
@@ -139,6 +141,7 @@ void search(void)
   {
     printf("Part name: %s\n", inventory[i].name);
     printf("Quantity on hand: %d\n", inventory[i].on_hand);
+    printf("Price: $%f", inventory[i].price);
   }
   else
   {
@@ -152,16 +155,20 @@ void search(void)
 // 	change in quantity on hand and updates the database.
 void update(void)
 {
-  int i, number, change;
+  int i, number, q_change, p_change;
 
   printf("Enter part number: ");
   scanf("%d", &number);
   i = find_part(number);
   if (i >= 0)
   {
-    printf("Enter change in quantity on hand: ");
-    scanf("%d", &change);
-    inventory[i].on_hand += change;
+    printf("Enter change in quantity on hand (0 for no change): ");
+    scanf("%d", &q_change);
+    inventory[i].on_hand += q_change;
+
+    printf("Enter change in price (0 for no change): ");
+    scanf("%d", &p_change);
+    inventory[i].price += p_change;
   }
   else
   {
@@ -230,14 +237,13 @@ void print(void)
 {
   int i;
 
-	num_parts = 3;
 	quicksort(0, num_parts-1);
 
   for (i = 0; i < num_parts; i++)
   {
-		printf("Part Number		Part Name		Quantity on Hand\n");
-		printf(("%7d			%-25s%11d\n"), inventory[i].number,
-				inventory[i].name, inventory[i].on_hand);
+		printf("%-15s%-25s%-10s%-15s\n", "Part Number", "Part Name", "Price", "Quantity on Hand");
+		printf(("%-15d%-25s$%-9.2f%-15d\n"), inventory[i].number,
+				inventory[i].name, inventory[i].price, inventory[i].on_hand);
 	}
 }
 
